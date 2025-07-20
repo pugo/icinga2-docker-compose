@@ -1,0 +1,36 @@
+version: '3.8'
+
+networks:
+  icinga:
+    enable_ipv6: true
+    driver: bridge
+
+services:
+  icinga-master:
+    image: icinga/icinga2
+    container_name: icinga-master
+    hostname: icinga-master
+    networks:
+      - icinga
+    ports:
+      - 5665:5665
+    volumes:
+      - ./data/master:/data
+      - ./data/msmtp/msmtprc:/etc/msmtprc:ro
+      - ./data/msmtp/msmtp.log:/var/log/msmtp.log
+    environment:
+      - ICINGA_MASTER=1
+
+#  icinga-agent:
+#    image: icinga/icinga2
+#    container_name: icinga-agent
+#    hostname: icinga-agent
+#    networks:
+#      - icinga
+#    volumes:
+#      - ./data/agent:/data
+#    environment:
+#      - ICINGA_ZONE=icinga-agent
+#      - ICINGA_ENDPOINT=icinga-master,icinga-master,5665
+#      - ICINGA_CACERT_FILE=/data/icinga-ca.crt
+#      - ICINGA_TICKET_FILE=/data/icinga-agent.ticket
