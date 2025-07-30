@@ -4,6 +4,7 @@ networks:
     enable_ipv6: true
     driver: bridge
 
+services:
   icinga-agent:
     image: icinga/icinga2
     container_name: icinga-agent
