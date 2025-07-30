@@ -1,18 +1,14 @@
 
-networks:
-  icinga:
-    enable_ipv6: true
-    driver: bridge
-
 services:
   icinga-agent:
     image: icinga/icinga2
     container_name: icinga-agent
     hostname: icinga-agent
-    networks:
-      - icinga
+    ports:
+      - 5665:5665
     volumes:
       - ./data/agent:/data
+      - ./data/agent/ca.crt:/var/lib/icinga2/certs/ca.crt
     restart: unless-stopped
     environment:
       - ICINGA_ZONE=icinga-agent
