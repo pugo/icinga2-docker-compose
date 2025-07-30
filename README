@@ -1,3 +1,0 @@
-To run command in master:
-
-docker exec -it icinga-master <command>

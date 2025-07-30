@@ -20,18 +20,3 @@ services:
     restart: unless-stopped
     environment:
       - ICINGA_MASTER=1
-
-#  icinga-agent:
-#    image: icinga/icinga2
-#    container_name: icinga-agent
-#    hostname: icinga-agent
-#    networks:
-#      - icinga
-#    volumes:
-#      - ./data/agent:/data
-#    restart: unless-stopped
-#    environment:
-#      - ICINGA_ZONE=icinga-agent
-#      - ICINGA_ENDPOINT=icinga-master,icinga-master,5665
-#      - ICINGA_CACERT_FILE=/data/icinga-ca.crt
-#      - ICINGA_TICKET_FILE=/data/icinga-agent.ticket
