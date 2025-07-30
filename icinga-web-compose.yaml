@@ -15,6 +15,7 @@ services:
       - icinga
     volumes:
       - ./data/web:/data
+    restart: unless-stopped
     environment:
       - icingaweb.enabledModules=icingadb
       - icingaweb.passwords.icingaweb2.icingaadmin=123456
