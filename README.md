@@ -47,3 +47,9 @@ To for example run a command in the master container:
 ```
 $ docker exec -it icinga-master <command>
 ```
+
+To generate a ticket from the master, to add an agent:
+
+```
+$ docker exec -it icinga-master icinga2 pki ticket --cn icinga-agent > icinga-agent.ticket
+```
