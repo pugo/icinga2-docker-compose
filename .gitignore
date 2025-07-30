@@ -1,0 +1,6 @@
+*~
+data/agent/etc
+data/agent/var
+data/master/etc
+data/master/var
+data/msmtp
